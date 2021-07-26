@@ -1,0 +1,65 @@
+class Solution {
+public:
+    bool isValid(string s) {
+        char ch;
+        stack<char> st;
+        if(s.length()==1)
+            return(false);
+   for(int i=0;i<s.length();i++){
+          ch = s[i];
+      switch(ch){
+       case '(':
+               if(i != s.length()-1){
+                   st.push(ch);
+                   break;
+                }
+               else
+                  return(false);
+       case '{':
+               if(i != s.length()-1){
+                  st.push(ch);
+                   break;
+               }
+               else
+                  return(false);
+       case '[':
+              if(i != s.length()-1){
+                   st.push(ch);
+                   break;
+                }
+              else 
+                 return(false);
+       case ')':
+             if(st.size()==0)
+                  return(false);
+             if(st.top()== '('){
+                  st.pop();
+                  break;
+                }
+             else
+                return(false);
+      case '}':
+            if(st.size()==0)
+                 return(false);
+            if(st.top()=='{'){
+                 st.pop();
+                  break;
+                }
+            else
+                return(false);
+      case ']':
+           if(st.size()==0)
+                 return(false);
+           if(st.top()== '['){
+                 st.pop();
+                 break;
+               }
+           else
+               return(false);
+        }//end of switch
+      }//end of loop
+        if(st.empty())
+          return(true);
+        return(false);
+    }//end of function
+};
