@@ -1,0 +1,13 @@
+vector<vector<int>> pairSum(vector<int> &arr, int s){
+   // Write your code here.
+    vector<vector<int>>a;
+    int n = arr.size();
+    sort(arr.begin(),arr.end());
+    for(int i=0;i<n;i++){
+      for(int j=i+1;j<n;j++){
+          if(s-arr[i] == arr[j])
+              a.push_back({arr[i],arr[j]});
+      }
+    }
+    return(a);
+}
