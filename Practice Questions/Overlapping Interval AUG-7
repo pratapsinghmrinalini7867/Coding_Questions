@@ -1,0 +1,54 @@
+/*   
+    Time Complexity = O(N ^ 2)
+    Space Complexity = O(1)
+    
+    where N is the number of intervals given
+*/
+
+//First Solution
+
+bool isOverlap(int start1, int end1, int start2, int end2)
+{
+    // If end of on internval is less than equal to staring of other internval then there is no overlap.
+    if (end1 <= start2 || end2 <= start1)
+    {
+        return false;
+    }
+
+    return true;
+}
+
+bool checkOverlappingIntervals(long *start, long *end, int n)
+{
+
+    // Check all posible combinations.
+    for (int i = 0; i < n - 1; ++i)
+    {
+        for (int j = i + 1; j < n; ++j)
+        {
+            if (isOverlap(start[i], end[i], start[j], end[j]))
+            {
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+
+//Second Solution
+
+
+bool checkOverlappingIntervals(long* start, long* end, int n)
+{
+    //Write your code here 
+    for(int i=0;i<n-1;++i){
+        for(int j=i+1;j<n;++j){
+            if((start[i]>start[j]&&start[i]<end[j]) || (start[i]<start[j]&&end[i]>start[j]))
+                return(true);
+       }
+    }
+    return(false);
+
+
+}
