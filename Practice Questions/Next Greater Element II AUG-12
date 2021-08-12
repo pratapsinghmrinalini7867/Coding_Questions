@@ -1,0 +1,35 @@
+// next greater element in circular array
+class Solution {
+public:
+    vector<int> nextGreaterElements(vector<int>& nums) {
+        int grt;
+        int n = nums.size();
+        vector<int>nxt;
+        if(n==1){
+            nxt.push_back(-1);
+            return(nxt);
+        }
+
+        for(int i=0;i<n;i++) {
+         grt = -1;
+         int j;
+         if(i==n-1)
+             j = 0;
+         else
+             j = i + 1;
+         while(j!=i){
+          if(nums[i]<nums[j]){
+              grt = nums[j];
+              break;
+              }
+          if(j>=n-1)
+              j = 0;
+          else
+              j++;
+         }
+            nxt.push_back(grt);
+        }
+        return(nxt);
+    }
+    
+};
