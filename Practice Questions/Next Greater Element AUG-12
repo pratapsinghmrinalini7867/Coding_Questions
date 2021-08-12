@@ -1,0 +1,22 @@
+// O(n * m)
+class Solution {
+public:
+    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
+       int flag,grt;
+        vector<int>nextgreater;
+        for(int i=0;i<nums1.size();i++){
+         flag = 0;
+         grt = -1;
+         for(int j=0;j<nums2.size();j++){
+           if(nums1[i]==nums2[j])
+               flag = 1;
+           if(flag==1&&nums1[i]<nums2[j]){
+               grt = nums2[j];
+               break;
+               }
+         }
+            nextgreater.push_back(grt);
+        }
+        return(nextgreater);
+    }
+};
