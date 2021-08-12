@@ -1,0 +1,38 @@
+/* Oly wants to steel a bag of cookies from Ana and Mona 
+so that they can't noticed the steel bag and
+can equally divide the cookies.
+Find the no. if ways she can do that */
+
+#include<bits/stdc++.h>
+using namespace std;
+class solution{
+  public:
+     function waystosteel(int a[],int n){
+        int sum=0,count=0;
+        if(n==1)
+          return(1);
+        for(int i=0;i<n;i++)
+             sum += a[i];
+        if(sum%2==0){
+           for(int j=0;j<n;j++)
+               if(a[i]%2==0)
+                 count++;
+           }
+        else{
+          for(int j=0;j<n;j++)
+           if(a[i]%2!=0)
+             count++;
+        }
+         return(count);
+     }
+     };
+    int main(){
+    solution s;
+      int n;
+      cin>>n
+      int a[n];
+      for(int i=0;i<n;i++)
+        cin>>a[i];
+        int ways = s.waystosteel(a,n);
+        cout<<ways;  
+    }
