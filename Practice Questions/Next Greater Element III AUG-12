@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+#include <algorithm>
+class Solution {
+public:
+  int nextGreaterElement(int n) {
+        if(n>=INT32_MAX)
+            return(-1);
+        vector<int>digits;
+        long num = n;
+        int count=0;
+        while(n!=0){
+           digits.push_back(n%10);
+           n /= 10;
+           count++;
+        }
+       sort(digits.begin(),digits.end());
+       vector<int>permutations;
+       do{
+          long nb=0;
+          for(auto x:digits)
+             nb = nb*10 + x;
+          if(nb>INT32_MAX)
+              break;
+          permutations.push_back(nb);
+    }while(next_permutation(digits.begin(),digits.end()));
+      
+     int l = permutations.size();
+      
+    for(int i=0;i<l;i++)
+        if(permutations[i]==num&&i!=l-1)
+       return(permutations[i+1]);
+
+    return(-1);
+    }
+};
