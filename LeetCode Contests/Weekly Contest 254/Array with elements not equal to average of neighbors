@@ -1,0 +1,16 @@
+//scanning from left to right and swapping i and i+1 when found target element
+class Solution {
+public:
+    vector<int> rearrangeArray(vector<int>& nums) {
+        for(int i=1;i<nums.size()-1;){
+         if(nums[i-1]+nums[i+1]==2*nums[i]){
+        swap(nums[i],nums[i+1]);
+             if(i>1)
+                 i--;
+         }
+            else
+              i++;
+        }
+        return(nums);
+    }
+};
