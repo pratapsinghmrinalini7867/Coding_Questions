@@ -1,0 +1,41 @@
+Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+
+        int left = 0;
+        int right = 0;
+        int *leftarr = new int[m+1];
+        int index = 0;
+        int *rightarr = new int[n+1];
+        
+        for(int i=0;i<m;i++)
+           leftarr[i] = nums1[i];
+        
+        for(int j=0;j<n;j++)
+           rightarr[j] = nums2[j];
+        
+        while(left<m && right<n){
+          if(leftarr[left]<=rightarr[right]){
+             nums1[index]=leftarr[left];
+              left++;
+          }
+          else{
+            nums1[index]=rightarr[right];
+                right++;
+          }
+            index++;
+        }
+        
+        while(left<m){
+            nums1[index]=leftarr[left];
+            left++;
+            index++;
+        }
+        
+        while(right<n){
+            nums1[index]=rightarr[right];
+            right++;
+            index++;
+        } 
+  }
+};
